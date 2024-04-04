@@ -1,0 +1,16 @@
+[
+    {
+        "Name":"Nimish Devpura",
+        "Email":"nimish@gmail.com",
+        "Gender":"Male",
+        "Password":"123",
+        "Pincode":"300110"
+    },
+    {
+        "Name":"ABC",
+        "Email":"abc@gmail.com",
+        "Gender":"Female",
+        "Password":"123",
+        "Pincode":"211001"
+    }
+]
