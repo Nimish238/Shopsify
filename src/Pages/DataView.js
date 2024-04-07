@@ -21,7 +21,7 @@ export default function DataView(props) {
     return(
       <React.Fragment>
        {props.desc.slice(0,100)}
-       <a href='sendData' onClick={()=>openModal(props.id,props.title,props.desc,props.image)}> ...read more</a>
+       <a href='#' onClick={()=>openModal(props.id,props.title,props.desc,props.image)}> ...read more</a>
       </React.Fragment>
     )
   }
