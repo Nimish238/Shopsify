@@ -93,7 +93,8 @@ function Home() {
     let quantity = Number(userCart.filter(item =>item.product.id===id).map(item=>item.quantity));    
     quantity = (quantity === 0 || quantity === null)? Number(1) : quantity+1;
     
-    if(quantity>1){      
+    if(quantity>1){     
+      
       dispatch(updateProductQuantity({quantity,id,userEmail}));
     }
     else{
@@ -103,23 +104,25 @@ function Home() {
         "product": itemId[0],
         "quantity":1
       }
+      
       dispatch(addProduct(cartObj));
     }
   }
 
 
   const removeProductFromCart = (id)=>{
-    let index = myCart.findIndex(obj=> obj.user===obj.userEmail&&obj.product.id===id);
+    let index = myCart.findIndex(obj=> obj.user===userEmail && obj.product.id===id);
     dispatch(removeProduct(index));
   }
 
   const deleteProduct=(id)=>{
-    let quantity = userCart.filter(item=>item.product.id===id).map(item=>item.quantity);
+    let quantity = Number(userCart.filter(item=>item.product.id===id).map(item=>item.quantity));
     quantity=quantity > 1 ? Number(quantity-1) : 0;
     if(quantity===0){
       removeProductFromCart(id);
     }
     else{
+     
       dispatch(updateProductQuantity({quantity,id,userEmail}));
     }
   }

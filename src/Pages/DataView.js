@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default function DataView(props) {
 
@@ -21,7 +22,7 @@ export default function DataView(props) {
     return(
       <React.Fragment>
        {props.desc.slice(0,100)}
-       <a href='#' onClick={()=>openModal(props.id,props.title,props.desc,props.image)}> ...read more</a>
+       <Link href='#' onClick={()=>openModal(props.id,props.title,props.desc,props.image)}> ...read more</Link>
       </React.Fragment>
     )
   }

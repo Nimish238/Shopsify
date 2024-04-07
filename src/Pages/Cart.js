@@ -87,17 +87,20 @@ export default function Cart (props){
 
 
     const removeProductFromCart = (id)=>{
-        let index = selectedProducts.findIndex(obj=> obj.user===obj.userEmail&&obj.product.id===id);
+        let index = selectedProducts.findIndex(obj=> obj.user===userEmail && obj.product.id===id);
+        console.log(index)
         dispatch(removeProduct(index));
     }
     
     const deleteProduct=(id)=>{
-        let quantity = selectedProducts.filter(item=>item.product.id===id).map(item=>item.quantity);
+        
+        let quantity = Number(selectedProducts.filter(item=>item.user === userEmail && item.product.id===id).map(item=>item.quantity));
         quantity=quantity > 1 ? Number(quantity-1) : 0;
-        if(quantity===0){
+        if(quantity===0){   
           removeProductFromCart(id);
         }
         else{
+            
           dispatch(updateProductQuantity({quantity,id,userEmail}));
         }
     }
@@ -129,7 +132,9 @@ export default function Cart (props){
                 category:item.product.category,
                 amount:((item.quantity)*(item.product.price)).toFixed(2)
             }
+            
             return obj;
+            
         }
         setData(productData);           
     }

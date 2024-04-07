@@ -13,6 +13,10 @@ const UserSlice = createSlice({
             state.cartArray.push(action.payload);
         },
 
+        removeProduct(state,action){
+            state.cartArray.splice(action.payload,1)
+        },
+
         updateProductQuantity(state,action){
             // let userCart=(current(state.cartArray)).filter(item => item.user ===action.payload.userEmail).map(item=>({product:item.product,quantity:item.quantity}));
 
@@ -32,14 +36,11 @@ const UserSlice = createSlice({
             }
         },
 
-        removeProduct(state,action){
-            state.cartArray.splice(action.payload,1)
-        },
         addCheckoutItems(state,action){
-            state.checkoutItems.push(action.payload);
+            (state.checkoutItems).push(action.payload);
         },
         removeCheckoutItems(state,action){
-            state.checkoutItems.splice(0,(state.checkoutItems).length);
+            (state.checkoutItems).splice(0,(state.checkoutItems).length);
         }
 
     },
