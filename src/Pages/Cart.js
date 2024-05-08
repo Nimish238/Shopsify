@@ -7,11 +7,12 @@ import {clearAllUsers} from "../Components/Redux/Action";
 import { MdDelete } from "react-icons/md";
 import ProceedToBuyModal from "../Components/Modals/ProceedToBuyModal";
 import Navbar2 from "./Navbar_2";
+import ProfileModal from "../Components/Modals/ProfileModal";
 
 
 export default function Cart (props){
 
-    const {user} = useContext(AuthContext);
+    const {user,profileModal} = useContext(AuthContext);
     const dispatch = useDispatch();
     const [data,setData] = useState([]);
     const [searchList,setSearchList] = useState(data);
@@ -157,7 +158,7 @@ export default function Cart (props){
         <div>
 
             {modal && MainModal()}
-            
+            {profileModal && <ProfileModal></ProfileModal>}
             
             <Navbar2 filterProductsOnSearch={filterProductsOnSearch}/>
 

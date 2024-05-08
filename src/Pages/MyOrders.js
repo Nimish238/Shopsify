@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DataTable from "react-data-table-component";
 import Navbar2 from "./Navbar_2";
 
 import { removePlacedOrders } from "../Components/Redux/Slices/MasterSlice";
+import AuthContext from "../Context/Auth";
+import ProfileModal from "../Components/Modals/ProfileModal";
 
 export default function MyOrders(props) {
   const [records, setRecords] = useState([]);
   const [searchList,setSearchList] = useState(records);
   const dispatch = useDispatch();
+  const {profileModal} = useContext(AuthContext);
 
   const allOrders = useSelector((state) => {
     return state.masterData.placedOrders;
@@ -75,6 +78,7 @@ export default function MyOrders(props) {
 
   return (
     <div>
+        {profileModal && <ProfileModal></ProfileModal>}
       <Navbar2 filterProductsOnSearch={filterProductsOnSearch} />
       <br />
       <br />

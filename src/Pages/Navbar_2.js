@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeCheckoutItems } from "../Components/Redux/Slices/UserSlice";
 
 function Navbar_2(props) {
-  const { user, setStatus, setUser, quant, setQuant } = useContext(AuthContext);
+  const { user, setStatus, setUser, quant, setQuant,openProfileModal } = useContext(AuthContext);
   const navigate = useNavigate();
   const userEmail = user?.user_Data?.Email;
   const [isHovered, setIsHovered] = useState(false);
@@ -59,6 +59,10 @@ function Navbar_2(props) {
     navigate("/Cart");
   };
 
+  const setModal =() =>{
+    openProfileModal();
+  }
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg   navbar-dark bg-dark">
@@ -91,9 +95,9 @@ function Navbar_2(props) {
             </ul>
             <div>
               {pageLocation && (
-                <form class="form-inline my-2 my-lg-0">
+                <form className="form-inline my-2 my-lg-0">
                   <input
-                    class="form-control mr-sm-2"
+                    className="form-control mr-sm-2"
                     type="search"
                     placeholder="Search here.."
                     onChange={(e) => {
@@ -153,13 +157,19 @@ function Navbar_2(props) {
                   className="dropdown-menu dropdown-menu-end"
                   aria-labelledby="navbarDropdown"
                 >
+                 <li>
+                    <a className="dropdown-item" href="#" onClick={setModal}>
+                      Profile
+                    </a>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
                   <li>
                     <a className="dropdown-item" href="#" onClick={logOut}>
                       Log-Out
                     </a>
                   </li>
-                  {/* <li><hr className="dropdown-divider" /></li>
-                <li><a className="dropdown-item" href="#">Something else here </a></li> */}
                 </ul>
               </div>
             </div>

@@ -34,7 +34,6 @@ function Navbar({ onCategoryChange }) {
 
   const handleCategoryClick = (categories, event) => {
     event.preventDefault(); //it is used so that whenever <a> tag is is clicked it didn't render it to next page
-    console.log("Clicked categories:", categories);
     onCategoryChange(categories);
   };
 
@@ -114,13 +113,7 @@ function Navbar({ onCategoryChange }) {
                 </Link>
               </li>
             </ul>
-            {/* <div>
-              {pageLocation && <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search here.." aria-label="Search"/>
-              </form>}
-              </div>
 
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
             <div className="nav-item position-relative">
               <Link to="/Cart">
                 <img
