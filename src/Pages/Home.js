@@ -7,6 +7,7 @@ import TopLoadingBar from 'react-top-loading-bar';
 import AuthContext from '../Context/Auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProduct,updateProductQuantity,removeProduct } from '../Components/Redux/Slices/UserSlice';
+import ProfileModal from '../Components/Modals/ProfileModal';
 
 
 function Home() {
@@ -22,7 +23,7 @@ function Home() {
   const [productImage,setProductImage] = useState(null);
   const [userCart,setUserCart]= useState(null);
 
-  const {user} = useContext(AuthContext);
+  const {user,profileModal} = useContext(AuthContext);
 
   const dispatch= useDispatch();
   
@@ -132,6 +133,7 @@ function Home() {
     <div>
       
       {Modal && mainModal()}
+      {profileModal && <ProfileModal></ProfileModal>}
 
       <Navbar onCategoryChange={handleCategoryChange} />
       

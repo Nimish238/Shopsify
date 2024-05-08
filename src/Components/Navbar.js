@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 function Navbar({onCategoryChange}) {
  
-  const {user,setStatus,setUser,quant,setQuant} = useContext(AuthContext);
+  const {user,setStatus,setUser,quant,setQuant,openProfileModal} = useContext(AuthContext);
   const navigate = useNavigate();
   const userEmail = user?.user_Data?.Email;
   const [isHovered, setIsHovered] = useState(false);
@@ -38,6 +38,7 @@ function Navbar({onCategoryChange}) {
 
   }
   
+  
 
   const logOut =() =>{
     localStorage.removeItem('login')
@@ -48,8 +49,12 @@ function Navbar({onCategoryChange}) {
 
   const navigateToCart =() =>{
     navigate('/Cart')
-
   }
+
+  const setModal =() =>{
+    openProfileModal();
+  }
+
   return (
     
     <div >
@@ -101,9 +106,11 @@ function Navbar({onCategoryChange}) {
               </a>
               <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                
+                <li><a className="dropdown-item" href="#" onClick={setModal}>Profile</a></li>
+                <li><hr className="dropdown-divider" /></li>
                 <li><a className="dropdown-item" href="#" onClick={logOut}>Log-Out</a></li>
-                {/* <li><hr className="dropdown-divider" /></li>
-                <li><a className="dropdown-item" href="#">Something else here </a></li> */}
+                
+                
               </ul>
                 </div>
               

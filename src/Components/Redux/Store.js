@@ -5,7 +5,9 @@ import secureLocalStorage from 'react-secure-storage';
 
 const loadState=()=>{
     try{
-       const serializedState = secureLocalStorage.getItem('reduxState');
+        // const serializedState = sessionStorage.getItem('reduxState');
+        const serializedState = secureLocalStorage.getItem('reduxState');
+
         if(serializedState==null){
             return undefined;
         }
@@ -19,6 +21,7 @@ const loadState=()=>{
 const saveState=(state)=>{
     try{
         const serializedState = JSON.stringify(state);
+        // sessionStorage.setItem("reduxState",serializedState)
         secureLocalStorage.setItem("reduxState",serializedState)
     }catch(e){
         console.log(e);
