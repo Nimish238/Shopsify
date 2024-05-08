@@ -14,19 +14,32 @@ export default function Cart (props){
     const {user} = useContext(AuthContext);
     const dispatch = useDispatch();
     const [data,setData] = useState([]);
+    const [searchList,setSearchList] = useState(data);
     const [records,setRecords] = useState(data);
     const userEmail = user?.user_Data?.Email;
     const [modal,setModal] = useState(false);
+    
 
 
     const selectedProducts = useSelector((state)=>{
         return (state.userItems).cartArray;
     })
 
+    useEffect(()=>{
+        setSearchList(data);
+    },[data]);
+
 
     useEffect (()=>{
         setRecords(data);
     },[data])
+
+    const filterProductsOnSearch =(value)=>{
+        const searchItems =data.filter(item=>{
+            return item.name.toLowerCase().includes(value.toLowerCase());
+        }) 
+        setSearchList(searchItems);
+    };
 
 
     useEffect(()=>{
@@ -72,7 +85,7 @@ export default function Cart (props){
     const MainModal =() =>{
         return(
         <ProceedToBuyModal  
-            data={data}
+            data={searchList}
             closeProceedToBuyModal ={closeProceedToBuyModal}
             userEmail={userEmail}
         />
@@ -146,12 +159,12 @@ export default function Cart (props){
             {modal && MainModal()}
             
             
-            <Navbar2 />
+            <Navbar2 filterProductsOnSearch={filterProductsOnSearch}/>
 
             <div className="table-wrapper">
             <DataTable
             columns={columns}
-            data={records}
+            data={searchList}
             fixedHeader
             pagination
             />
