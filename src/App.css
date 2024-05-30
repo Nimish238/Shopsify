@@ -69,3 +69,23 @@
   margin: 0px auto 10px;
   display: block;
 }
+
+.login-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #ADD8E6; */
+  background-color: #C4A484;
+  overflow: hidden;
+}
+.login-box figure{
+  margin: 0;
+  width: 35%;
+  line-height: 0;
+  flex: 100%;
+}
+.login-box figure img{
+  max-width: 100%;
+
+
+}

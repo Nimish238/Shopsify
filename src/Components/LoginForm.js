@@ -6,8 +6,6 @@ import { userData } from '../FetchData';
 
 export default function LoginForm() {
 
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState(''); 
     const [loginDetails,setLoginDetails] = useState({
         email:"nimish@gmail.com",
         password:"123"
@@ -42,7 +40,6 @@ export default function LoginForm() {
     }
 
     const handleEmailChange = (e) =>{
-        // setEmail(e.target.value);
         setLoginDetails(prev=>{
             return({...prev,email:e.target.value})
         })
@@ -50,7 +47,7 @@ export default function LoginForm() {
     }
 
     const handlePasswordChange=(e)=>{
-        // setPassword(e.target.value);
+
         setLoginDetails(prev=>{
             return({...prev,password:e.target.value})
         })
@@ -59,8 +56,17 @@ export default function LoginForm() {
 
 
   return (
-    <div >
+    <div className="login-box">
+        <figure>
+        <img 
+        src="shopsify.png" 
+        alt="shopsify"
+        />
+        </figure>
+
     <div className="container d-flex justify-content-center align-items-center vh-100" >
+   
+
         <form onSubmit={handleSubmit} className="border border-dark p-4 rounded shadow" style={{ width: '400px',height:'300px' ,backgroundColor:'#FAFAFA'}}>
         <div className="mb-3" >
             <label htmlFor="exampleInputEmail1" style={{color:'#000'}}>Email address:</label>
@@ -102,3 +108,5 @@ export default function LoginForm() {
 
   )
 }
+
+
