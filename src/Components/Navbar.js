@@ -56,9 +56,9 @@ function Navbar({ onCategoryChange }) {
     <div>
       <nav className="navbar navbar-expand-lg  navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/home">
+          <Link className="navbar-brand" to ="/home">
             Shopsify
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

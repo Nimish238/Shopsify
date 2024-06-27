@@ -19,6 +19,7 @@ function Home() {
   const [modalDetailsId,setModalDetailsId] = useState(null);
   const [modalTitle,setModalTitle] = useState(null);
   const [modalDesc,setModalDesc] = useState(null);
+  const [productPrice,setProductPrice] = useState(0);
   const [modalQuantityDetails,setModalQuantityDetails] = useState(null);
   const [productImage,setProductImage] = useState(null);
   const [userCart,setUserCart]= useState(null);
@@ -64,6 +65,7 @@ function Home() {
     productTitle={modalTitle} 
     productDesc={modalDesc} 
     productImg={productImage}
+    productPrice={productPrice}
     addProductToCart={addProductToCart}
     deleteProduct={deleteProduct}
     closeModal={closeModal}/>
@@ -75,12 +77,13 @@ function Home() {
 
   }
 
-  const openModalDetails= (id,title,desc,image,quantityOF) =>{
+  const openModalDetails= (id,title,desc,image,quantityOF,price) =>{
     setModalQuantityDetails(quantityOF);
     setModalDetailsId(id);
     setModalTitle(title);
     setModalDesc(desc);
     setProductImage(image);
+    setProductPrice(price);
     setModal(true);
   } 
   

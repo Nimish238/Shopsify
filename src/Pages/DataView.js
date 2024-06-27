@@ -14,15 +14,15 @@ export default function DataView(props) {
   }
 
   
-  const openModal = (id,title,desc,image,quantity) =>{
-    props.openModalDetails(id,title,desc,image,quantity);
+  const openModal = (id,title,desc,image,quantity,price) =>{
+    props.openModalDetails(id,title,desc,image,quantity,price);
   }
 
   const customizedDescription = () =>{
     return(
       <React.Fragment>
        {props.desc.slice(0,100)}
-       <Link href='#' onClick={()=>openModal(props.id,props.title,props.desc,props.image)}> ...read more</Link>
+       <Link href='#' onClick={()=>openModal(props.id,props.title,props.desc,props.image,props.quantity,props.price)}> ...read more</Link>
       </React.Fragment>
     )
   }
@@ -55,7 +55,7 @@ export default function DataView(props) {
             <br/><br/>
 
 
-            <button type="button" className="btn btn-dark" onClick={()=>openModal(props.id,props.title,props.desc,props.image,props.quantity)}>View Product</button>
+            <button type="button" className="btn btn-dark" onClick={()=>openModal(props.id,props.title,props.desc,props.image,props.quantity,props.price)}>View Product</button>
 
         </div>
         </div>
