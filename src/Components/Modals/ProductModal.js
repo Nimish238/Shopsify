@@ -57,19 +57,19 @@ function ProductModal(props) {
         <h3>{productTitle} </h3>
         <p>{productDesc}</p>
 
-        {
-          (quant<1)&&<span className='btn-box' style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-          <button className='btn btn-success' title='Increment' onClick={()=>addToCart()}>Add To Cart</button>    
-        </span>  
-        }
+       //  {
+       //    (quant<1)&&<span className='btn-box' style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+       //    <button className='btn btn-success' title='Increment' onClick={()=>addToCart()}>Add To Cart</button>    
+       //  </span>  
+       //  }
 
-       { 
-        (quant!==0)&&<span className='btn-box' style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-          <button className='btn btn-success' title='Increment' onClick={()=>addToCart()}>+</button>
-          &nbsp; {quant} &nbsp;
-          <button className='btn btn-danger' title='Decrement' onClick={()=>removeFromCart()}>-</button>
-        </span>
-        }
+       // { 
+       //  (quant!==0)&&<span className='btn-box' style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+       //    <button className='btn btn-success' title='Increment' onClick={()=>addToCart()}>+</button>
+       //    &nbsp; {quant} &nbsp;
+       //    <button className='btn btn-danger' title='Decrement' onClick={()=>removeFromCart()}>-</button>
+       //  </span>
+       //  }
         
 
       </div>   
